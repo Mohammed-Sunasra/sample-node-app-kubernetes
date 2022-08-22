@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users
+  template:
+    metadata:
+      labels:
+        app: users
+    spec:
+      containers:
+        - name: users
+          image: mohammedsunasra13/k8-3tier-demo-users-app:v1
+          env:
+            - name: AUTH_SERVICE_URL
+              value: auth-service.default
