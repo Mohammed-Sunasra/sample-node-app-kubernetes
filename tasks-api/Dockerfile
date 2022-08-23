@@ -1,12 +1,11 @@
 FROM node:14-alpine
 
-ENV appname tasks
-
 WORKDIR /app
 
 COPY package.json .
 
 RUN npm install
+RUN npm install cors
 
 COPY . .
 
